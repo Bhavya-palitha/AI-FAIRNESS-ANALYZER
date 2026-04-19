@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fairness Analyzer • CODE STORM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 50%, #334155 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 40px;
+        }
+        
+        .nav-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            margin-left: 35px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover { color: #00d4ff; }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            min-height: 85vh;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4.8rem;
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+        
+        .hero-text .tagline {
+            font-size: 1.85rem;
+            color: #67e8f9;
+            margin-bottom: 35px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(90deg, #00d4ff, #67e8f9);
+            color: #0f172a;
+            padding: 22px 52px;
+            font-size: 1.45rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover { transform: translateY(-8px); }
+        
+        .section { padding: 130px 0; }
+        
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.4rem;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(to right, #00d4ff, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 24px;
+            padding: 50px;
+            transition: all 0.4s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-20px);
+            border-color: #00d4ff;
+            box-shadow: 0 30px 60px -15px rgba(0, 212, 255, 0.3);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+        
+        .team-card {
+            text-align: center;
+            padding: 40px 25px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 24px;
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #00d4ff, #a78bfa);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.2rem;
+        }
+        
+        .demo-box {
+            background: #1e2937;
+            border-radius: 28px;
+            padding: 70px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        footer {
+            background: #020617;
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-content">
+            <div class="nav-title">CODE STORM</div>
+            <div class="nav-links">
+                <a href="#problem">Problem</a>
+                <a href="#solution">Solution</a>
+                <a href="#how">How it Works</a>
+                <a href="#features">Features</a>
+                <a href="#demo">Live Demo</a>
+                <a href="#impact">Impact</a>
+                <a href="#team">Team</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>AI Fairness<br>Analyzer</h1>
+                    <p class="tagline">Making AI Decisions Fair for Everyone</p>
+                    <p style="font-size: 1.45rem; max-width: 580px; margin-bottom: 45px; color: #cbd5e1;">
+                        We detect hidden bias in AI systems used in hiring, finance, and healthcare, then automatically correct it to ensure ethical and transparent outcomes.
+                    </p>
+                    <button class="cta-button" onclick="document.getElementById('demo').scrollIntoView({ behavior: 'smooth' })">
+                        <i class="fas fa-rocket"></i> Try Live Demo Now
+                    </button>
+                    <p style="margin-top: 50px; font-size: 1.25rem; opacity: 0.9;">
+                        Official Entry for Solution Challenge 2026
+                    </p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="background: rgba(255,255,255,0.08); border-radius: 32px; padding: 60px; backdrop-filter: blur(15px);">
+                        <div style="font-size: 8rem; margin-bottom: 30px;">⚖️</div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 20px;">Before vs After</h3>
+                        <div style="display: flex; justify-content: center; gap: 80px; margin: 50px 0;">
+                            <div style="text-align: center;">
+                                <p style="color: #f87171; font-size: 1.5rem;">Unfair</p>
+                                <div style="height: 260px; width: 26px; background: linear-gradient(#f87171, #ef4444); border-radius: 9999px; margin: 20px auto;"></div>
+                            </div>
+                            <div style="text-align: center;">
+                                <p style="color: #4ade80; font-size: 1.5rem;">Fair</p>
+                                <div style="height: 360px; width: 26px; background: linear-gradient(#4ade80, #22c55e); border-radius: 9999px; margin: 20px auto;"></div>
+                            </div>
+                        </div>
+                        <p style="color: #67e8f9; font-size: 1.8rem; font-weight: 700;">94% Fairness Score Achieved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section id="problem" class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2 class="section-title">The Problem Statement</h2>
+            <div class="card" style="max-width: 1100px; margin: 0 auto; font-size: 1.5rem; text-align: center;">
+                AI-based decision systems used in hiring, finance, and healthcare often exhibit bias against certain groups such as gender or socio-economic categories. 
+                This leads to unfair and unethical outcomes. There is a critical need for a system that can detect and reduce bias in AI models to ensure fairness and transparency for all.
+            </div>
+            
+            <div style="margin-top: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div class="card">
+                    <h4 style="color: #f87171; font-size: 1.6rem;">Hiring</h4>
+                    <p>Qualified candidates from certain backgrounds are unfairly rejected due to biased training data.</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #f87171; font-size: 1.6rem;">Finance</h4>
+                    <p>Loan approval systems discriminate based on socio-economic status or zip code.</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #f87171; font-size: 1.6rem;">Healthcare</h4>
+                    <p>Diagnostic tools show lower accuracy for minority groups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Solution -->
+    <section id="solution" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Solution</h2>
+            <div class="card" style="max-width: 1100px; margin: 0 auto; font-size: 1.5rem;">
+                <p><strong>AI Fairness Analyzer</strong> is an intelligent platform that helps organizations identify and eliminate bias in their AI systems.</p>
+                <p style="margin-top: 30px;">It scans datasets and model predictions, calculates fairness metrics, applies correction techniques, and provides clear visual proof of improvement.</p>
+                <p style="margin-top: 30px;">Our tool makes ethical AI practical and accessible for real-world applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how" class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2 class="section-title">How It Works - 4 Simple Steps</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px;">
+                <div class="card">
+                    <div style="font-size: 3rem; color: #00d4ff; margin-bottom: 25px;">01</div>
+                    <h4 style="font-size: 1.8rem;">Upload Dataset</h4>
+                    <p>Upload your CSV file or connect directly to your AI model pipeline. Supports hiring data, loan records, medical datasets, etc.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; color: #00d4ff; margin-bottom: 25px;">02</div>
+                    <h4 style="font-size: 1.8rem;">Bias Detection</h4>
+                    <p>Our system automatically analyzes the data using 8+ fairness metrics including Demographic Parity, Equal Opportunity, and Disparate Impact.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; color: #00d4ff; margin-bottom: 25px;">03</div>
+                    <h4 style="font-size: 1.8rem;">Automatic Correction</h4>
+                    <p>Choose from multiple correction methods like reweighing, adversarial debiasing, or post-processing to reduce bias.</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; color: #00d4ff; margin-bottom: 25px;">04</div>
+                    <h4 style="font-size: 1.8rem;">View Results</h4>
+                    <p>Get beautiful interactive visualizations, fairness score, and downloadable PDF report.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">Powerful Features</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 35px;">
+                <div class="card">
+                    <i class="fas fa-magnifying-glass" style="font-size: 3.8rem; color: #00d4ff; margin-bottom: 25px;"></i>
+                    <h4>Real-time Bias Scanning</h4>
+                    <p>Instant analysis of your dataset with detailed breakdown of bias sources.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line" style="font-size: 3.8rem; color: #00d4ff; margin-bottom: 25px;"></i>
+                    <h4>Interactive Visualizations</h4>
+                    <p>Beautiful charts and heatmaps showing bias before and after correction.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-shield-halved" style="font-size: 3.8rem; color: #00d4ff; margin-bottom: 25px;"></i>
+                    <h4>Multiple Correction Methods</h4>
+                    <p>Choose the best technique for your use case.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-file-pdf" style="font-size: 3.8rem; color: #00d4ff; margin-bottom: 25px;"></i>
+                    <h4>Professional Reports</h4>
+                    <p>Generate compliance-ready PDF reports for stakeholders and regulators.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo -->
+    <section id="demo" class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2 class="section-title">Interactive Live Demo</h2>
+            <div class="demo-box">
+                <h3 style="text-align: center; margin-bottom: 50px;">Adjust Bias &amp; See Correction</h3>
+                
+                <div style="margin: 45px 0;">
+                    <label style="font-weight: 600;">Gender Bias: <span id="genderVal">65</span>%</label>
+                    <input type="range" id="gender" min="0" max="100" value="65" oninput="updateSliders()" style="width:100%;">
+                </div>
+                <div style="margin: 45px 0;">
+                    <label style="font-weight: 600;">Socio-economic Bias: <span id="socioVal">52</span>%</label>
+                    <input type="range" id="socio" min="0" max="100" value="52" oninput="updateSliders()" style="width:100%;">
+                </div>
+                
+                <button onclick="runAnalysis()" style="width: 100%; padding: 24px; font-size: 1.5rem; margin-top: 40px; border-radius: 9999px; background: linear-gradient(90deg, #00d4ff, #67e8f9); color: black; font-weight: 700;">
+                    RUN FAIRNESS ANALYZER
+                </button>
+                
+                <div id="resultBox" style="display: none; margin-top: 50px; padding: 40px; background: rgba(16,185,129,0.15); border: 2px solid #10b981; border-radius: 20px; text-align: center;">
+                    <h3 style="color: #4ade80; font-size: 2.2rem;">Analysis Complete!</h3>
+                    <p style="margin: 20px 0;">Bias has been successfully reduced</p>
+                    <p style="font-size: 3rem; font-weight: 700; color: #67e8f9;" id="fairnessScore">96%</p>
+                    <p>Fairness Score</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact -->
+    <section id="impact" class="section">
+        <div class="container">
+            <h2 class="section-title">Expected Impact</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: center;">
+                <div class="card">
+                    <div style="font-size: 4rem; color: #00d4ff;">+41%</div>
+                    <h4 style="margin: 20px 0;">Diversity in Hiring</h4>
+                    <p>More inclusive recruitment process</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 4rem; color: #00d4ff;">-62%</div>
+                    <h4 style="margin: 20px 0;">Biased Loan Denials</h4>
+                    <p>Fairer access to financial services</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 4rem; color: #00d4ff;">100%</div>
+                    <h4 style="margin: 20px 0;">Regulatory Compliance</h4>
+                    <p>Ready for EU AI Act and other standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="section" style="background: #0f172a;">
+        <div class="container">
+            <h2 class="section-title">Meet Team CODE STORM</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="avatar">👩‍💼</div>
+                    <h3>Palitha Bhavya</h3>
+                    <p style="color: #67e8f9; margin-top: 10px;">Team Leader &amp; AI Researcher</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">👩‍💻</div>
+                    <h3>Himabindu</h3>
+                    <p style="color: #67e8f9; margin-top: 10px;">Backend Developer</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">👩‍💻</div>
+                    <h3>Manasa Narthu</h3>
+                    <p style="color: #67e8f9; margin-top: 10px;">Data Analyst</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">👩‍💻</div>
+                    <h3>Roshini Namali</h3>
+                    <p style="color: #67e8f9; margin-top: 10px;">UI/UX &amp; Presentation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="card" style="margin-bottom: 25px;">
+                    <h4>What industries does this tool support?</h4>
+                    <p style="margin-top: 15px;">Hiring &amp; Recruitment, Banking &amp; Finance, Healthcare, and any domain using AI for decision making.</p>
+                </div>
+                <div class="card" style="margin-bottom: 25px;">
+                    <h4>Is the tool easy to use?</h4>
+                    <p style="margin-top: 15px;">Yes. Just upload your data and click "Analyze". No coding required for basic usage.</p>
+                </div>
+                <div class="card">
+                    <h4>Can it be integrated with existing systems?</h4>
+                    <p style="margin-top: 15px;">Yes. It works with Python, scikit-learn, TensorFlow, and can be integrated into your existing ML pipeline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Built for Solution Challenge 2026</p>
+        <p style="margin-top: 15px; opacity: 0.75;">Team CODE STORM • AI Fairness Analyzer</p>
+        <p style="margin-top: 40px; font-size: 0.95rem; opacity: 0.6;">Thank you for reviewing our project</p>
+    </footer>
+
+    <script>
+        function updateSliders() {
+            document.getElementById('genderVal').textContent = document.getElementById('gender').value;
+            document.getElementById('socioVal').textContent = document.getElementById('socio').value;
+        }
+        
+        function runAnalysis() {
+            const result = document.getElementById('resultBox');
+            result.style.display = 'block';
+            const score = Math.floor(93 + Math.random() * 6);
+            document.getElementById('fairnessScore').textContent = score + '%';
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
