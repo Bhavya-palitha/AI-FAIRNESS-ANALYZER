@@ -89,7 +89,7 @@ It promotes ethical AI usage in real-world applications.
 ### 👩‍💻 Author
 PALITHA BHAVYA
 
-⭐ Acknowledgement
+### ⭐ Acknowledgement
 This project is developed as part of an academic submission to demonstrate AI fairness concepts.
 
-# 🎯 DONE
+### 🎯 DONE
