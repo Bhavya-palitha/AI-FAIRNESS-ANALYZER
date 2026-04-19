@@ -73,7 +73,7 @@ Step 2: Run the Application
 python app.py
 
 Step 3: Open in Browser
-http://127.0.0.1:5000/
+file:///C:/Users/DELL/Desktop/app.py/index.html
 
 📈 Future Scope
 Real-time dataset upload (CSV/Excel)
