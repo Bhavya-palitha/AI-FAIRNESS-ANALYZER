@@ -69,3 +69,28 @@ The system provides:
 ### Step 1: Install Requirements
 ```bash
 pip install flask pandas matplotlib
+
+Step 2: Run the Application
+python app.py
+
+Step 3: Open in Browser
+http://127.0.0.1:5000/
+
+📈 Future Scope
+Real-time dataset upload (CSV/Excel)
+Advanced fairness metrics
+Integration with real-world platforms
+Dashboard with analytics
+AI-powered explanation system
+
+🎯 Conclusion
+This project demonstrates how AI systems can be made fair, transparent, and responsible by detecting and correcting bias.
+It promotes ethical AI usage in real-world applications.
+
+👩‍💻 Author
+PALITHA BHAVYA
+
+⭐ Acknowledgement
+This project is developed as part of an academic submission to demonstrate AI fairness concepts.
+
+# 🎯 DONE
