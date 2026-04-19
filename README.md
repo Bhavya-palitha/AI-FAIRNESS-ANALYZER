@@ -73,7 +73,7 @@ pip install flask pandas matplotlib
 python app.py
 
 ### Step 3: Open in Browser
-file:///C:/Users/DELL/Desktop/app.py/index.html
+[file:///C:/Users/DELL/Desktop/app.py/index.html](https://document-viewer--palithabhavya03.replit.app)
 
 ### 📈 Future Scope
 Real-time dataset upload (CSV/Excel)
