@@ -69,13 +69,13 @@ The system provides:
 ### Step 1: Install Requirements
 pip install flask pandas matplotlib
 
-Step 2: Run the Application
+### Step 2: Run the Application
 python app.py
 
-Step 3: Open in Browser
+### Step 3: Open in Browser
 file:///C:/Users/DELL/Desktop/app.py/index.html
 
-📈 Future Scope
+### 📈 Future Scope
 Real-time dataset upload (CSV/Excel)
 Advanced fairness metrics
 Integration with real-world platforms
