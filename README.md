@@ -67,7 +67,6 @@ The system provides:
 ## 🌐 How to Run the Project
 
 ### Step 1: Install Requirements
-```bash
 pip install flask pandas matplotlib
 
 Step 2: Run the Application
